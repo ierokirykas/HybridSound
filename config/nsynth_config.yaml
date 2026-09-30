@@ -1,0 +1,27 @@
+# config/nsynth_config.yaml
+nsynth:
+  # Источник данных
+  dataset_url: "http://download.magenta.tensorflow.org/datasets/nsynth/nsynth-test.jsonwav.tar.gz"
+
+  # Пути для сохранения
+  archive_path: "data/raw/nsynth-test.tar.gz"
+  extract_dir: "data/raw/nsynth-test"
+  output_dir: "data/processed/nsynth_subset"
+
+  # Выборка инструментов для прототипа
+  desired_families:
+    - "bass"
+    - "brass"
+    - "keyboard"
+    - "mallet"
+    - "synth_lead"
+    - "string"
+    - "vocal"
+
+  # Выборка нот (MIDI pitch)
+  desired_notes: [56, 60, 64, 67, 70] # C4, E4, G4
+
+  # Настройки выборки
+  samples_per_family_note: 3 # Сколько семплов брать для каждой комбинации семейство-нота
+  random_seed: 42
+  max_total_samples: 100 # Ограничение общего количества семплов

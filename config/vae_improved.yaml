@@ -1,0 +1,26 @@
+# config/vae_improved.yaml
+model:
+  input_shape: [1, 128, 63]
+  latent_dim: 64 # Уменьшено с 128
+  hidden_dims: [32, 64, 128, 256] # Можно попробовать [16, 32, 64, 128]
+  beta: 0.01 # Сильно уменьшено
+  attr_weights:
+    instrument_family: 0.05 # Уменьшено в 4 раза
+    instrument_source: 0.025
+    brightness: 0.01
+    attack_type: 0.01
+  dropout_rate: 0.3 # Увеличено
+
+training:
+  batch_size: 16
+  learning_rate: 0.001 # Без кавычек, не 1e-3
+  weight_decay: 0.0001
+  max_grad_norm: 1.0
+  epochs: 200
+  early_stopping_patience: 50
+
+data_augmentation:
+  enabled: true
+  pitch_shift: [-2, 2] # Полутона
+  time_stretch: [0.9, 1.1] # ±10%
+  noise_std: 0.01 # Стандартное отклонение шума

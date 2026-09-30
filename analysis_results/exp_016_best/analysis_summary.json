@@ -1,0 +1,40 @@
+{
+  "model_info": {
+    "checkpoint": "hyperparam_search_results/exp_016/best_model.pth",
+    "latent_dim": 64,
+    "beta": 0.1,
+    "training_epoch": 16,
+    "best_val_loss": 54.946282267570496
+  },
+  "data_info": {
+    "dataset": "data/processed/nsynth_train_processed",
+    "validation_samples": 999,
+    "attribute_dimensions": {
+      "instrument_family": 11,
+      "instrument_source": 3,
+      "brightness": 3,
+      "attack_type": 3
+    }
+  },
+  "reconstruction_metrics": {
+    "mse_mean": 0.005417149048298597,
+    "mse_std": 0.0042912825010716915,
+    "mse_min": 0.0003310941974632442,
+    "mse_max": 0.031367313116788864,
+    "psnr_mean": 23.69998504350832,
+    "psnr_std": 2.977277377342824,
+    "psnr_min": 15.035226808090512,
+    "psnr_max": 34.8004843033756
+  },
+  "attribute_accuracies": {
+    "instrument_family": 0.39039039039039036,
+    "instrument_source": 0.6676676676676677,
+    "brightness": 0.7847847847847848,
+    "attack_type": 0.4774774774774775
+  },
+  "cluster_metrics": {
+    "silhouette_score": -0.03419651836156845,
+    "calinski_harabasz_score": 7.998547458710745
+  },
+  "analysis_timestamp": "2026-01-27T11:27:08.659599"
+}

@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+*.egg-info/
+.eggs/
+dist/
+wheels/
+MANIFEST
+
+# Virtualenv / venv
+.venv/
+venv/
+env/
+ENV/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Логи
+*.log
+logs/
+pip-log.txt
+
+# Переменные окружения
+.env
+.env.*
+!.env.example
+
+# Конфигурация IDE
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+.DS_Store
+Thumbs.db
+
+# macOS
+._*
+.DS_Store
+
+# ============================================================
+# Специфика проекта
+# ============================================================
+
+# Чекпойнты: 55 файлов, 317 МБ. Один best_model.pth (~12 МБ)
+# выложить в Releases или отдать через Git LFS.
+checkpoints/
+*.pth
+
+# Скачанный и распакованный датасет NSynth.
+# Лицензия CC BY 4.0 — аудио в репозитории не распространяется.
+# Якорь в начале — иначе правило зацепит src/data/ с исходниками.
+/data/
+
+# TensorBoard-события: 43 файла, в каждом имя хоста и PID.
+runs/
+
+# Сгенерированные гибриды: 168 WAV + 314 PNG, ~45 МБ.
+# Оставьте в репозитории 3-5 пар по 5 значений alpha, остальное
+# ссылкой или через LFS.
+hybridization_results/
+processed_audio/
+
+# Прогоны поиска гиперпараметров (4 из 4 упали, логи с трейсами).
+hyperparam_search_results/
+hyperparam_pair_results/
+
+# Скриншоты чата с GUID-именами, не результаты проекта.
+images/
+
+# Ранние попытки
+trash/
+Last_attempt/
+
+# Дубликаты прошлых версий: "train_vae copy.py", "fixed_vae copy.py".
+# Пробел в имени ломает упаковку, файлы никем не импортируются.
+*copy*.py
+
+# Ярлык Windows
+*.lnk

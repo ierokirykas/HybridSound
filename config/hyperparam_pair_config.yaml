@@ -1,0 +1,29 @@
+# config/hyperparam_pair_config.yaml
+hyperparam_pair_search:
+  # Директория для результатов
+  results_dir: "hyperparam_pair_results"
+
+  # Пара инструментов для специализированного обучения
+  instrument_pair:
+    name: "flute_vocal" # Имя пары
+    instrument1: "flute"
+    instrument2: "vocal"
+
+  # Сетка параметров для поиска (упрощенная)
+  param_grid:
+    latent_dim: [16, 32, 64]
+    beta: [0.1, 0.5, 1.0, 2.0]
+    learning_rate: [0.001, 0.0005]
+    batch_size: [16, 32]
+
+  # Параметры обучения
+  training:
+    epochs: 100
+    early_stopping_patience: 20
+    train_ratio: 0.8
+    num_workers: 2
+
+  # Метрики для оценки
+  metrics:
+    reconstruction_weight: 0.6 # Вес PSNR в общей оценке
+    smoothness_weight: 0.4 # Вес плавности интерполяции

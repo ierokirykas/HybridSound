@@ -1,0 +1,43 @@
+# config/nsynth_train_config.yaml
+nsynth_train:
+  # Используем train split для большего количества данных
+  dataset_url: "http://download.magenta.tensorflow.org/datasets/nsynth/nsynth-train.jsonwav.tar.gz"
+
+  # Пути для сохранения
+  archive_path: "data/raw/nsynth-train.tar.gz"
+  extract_dir: "data/raw/nsynth-train"
+  output_dir: "data/processed/nsynth_train_25k"
+
+  # Целевое количество семплов
+  target_samples: 25000
+
+  # Балансировка по инструментальным семействам
+  instrument_families:
+    - "bass"
+    - "brass"
+    - "keyboard"
+    - "mallet"
+    - "synth_lead"
+    - "string"
+    - "vocal"
+    - "guitar"
+    - "organ"
+    - "reed"
+    - "flute"
+
+  # Диапазон нот (MIDI pitch) для балансировки
+  pitch_ranges:
+    mid: [49, 72] # C#3 - C5
+
+  # Стратегия выборки
+  sampling_strategy: "balanced" # balanced, random, or stratified
+  samples_per_family: 2500 # Ориентировочное количество на семейство
+
+  # Фильтры качества
+  min_velocity: 30 # Минимальная громкость (velocity)
+  max_velocity: 90 # Максимальная громкость
+
+  # Технические параметры
+  random_seed: 11
+  max_download_retries: 3
+  batch_size: 5000 # Размер батча для обработки

@@ -1,0 +1,30 @@
+# config/vae_safe_aug.yaml
+# Безопасная конфигурация с аугментациями, не меняющими размер
+
+model:
+  input_shape: [1, 128, 63]
+  latent_dim: 64
+  hidden_dims: [32, 64, 128, 256]
+  beta: 0.01
+  attr_weights:
+    instrument_family: 0.05
+    instrument_source: 0.025
+    brightness: 0.01
+    attack_type: 0.01
+  dropout_rate: 0.3
+
+training:
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  max_grad_norm: 1.0
+  epochs: 200
+  early_stopping_patience: 50
+
+data_augmentation:
+  enabled: true
+  pitch_shift: [-2, 2] # Только целые числа, сдвиг по мел-банкам
+  noise_std: 0.01 # Гауссовский шум
+  spec_augment: true # Frequency и time masking
+  time_mask_size: 10 # Максимальный размер маски по времени
+  # УДАЛЕНО: time_stretch, так как он меняет размер

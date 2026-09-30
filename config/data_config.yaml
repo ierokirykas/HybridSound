@@ -1,0 +1,44 @@
+# config/data_config.yaml
+data_pipeline:
+  # Настройки входных данных (под NSynth)
+  sr: 16000 # Частота дискретизации NSynth
+  target_sr: 44100 # Целевая частота дискретизации (если нужно ресемплирование)
+  resample: false # Ресемплировать ли в target_sr?
+
+  # Сегментация
+  duration: 2.0 # Длительность сегмента (сек)
+
+  # Спектрограммы
+  n_mels: 128 # Высота мел-спектрограммы
+  hop_length: 512 # Шаг для спектрограммы
+  n_fft: 2048 # Размер FFT
+  fmax: 8000 # Максимальная частота для мел-спектрограммы
+
+  # Аудио обработка
+  mono: true # Приводить к моно
+  normalize: true # Нормализация громкости
+  target_rms: 0.05 # Целевое значение RMS
+
+  # Валидация
+  min_duration: 1.5 # Минимальная длительность файла (сек)
+  max_clipping: 0.99 # Максимальное значение амплитуды до клиппинга
+
+  # Атрибуты для кодирования (из NSynth)
+  attributes:
+    - name: instrument_family
+      source_column: instrument_family
+      values:
+        ["bass", "brass", "keyboard", "mallet", "synth_lead", "string", "vocal"]
+    - name: instrument_source
+      source_column: instrument_source
+      values: ["acoustic", "electronic", "synthetic"]
+    - name: brightness # На основе pitch
+      source_column: pitch
+      mapping:
+        medium: [49, 72] # C#3 - C5
+      default: "medium"
+    - name: attack_type # На основе velocity
+      source_column: velocity
+      mapping:
+        soft: [0, 64]
+      default: "soft"
